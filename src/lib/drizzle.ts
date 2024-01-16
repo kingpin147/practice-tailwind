@@ -14,17 +14,11 @@ export const db = drizzle(sql);
 export const userTable = pgTable(
   'users',
   {
-    id: serial('id').primaryKey(),
-    name: text('name').notNull(),
+    id: serial('_id').primaryKey(),
+    name: text('username').notNull(),
     email: text('email').notNull(),
     
-  },
-  (users) => {
-    return {
-      uniqueIdx: uniqueIndex('unique_idx').on(users.email),
-    };
-  },
-);
+  });
  
 // export const getExampleTable = async () => {
 //   const selectResult = await db.select().from(userTable);
